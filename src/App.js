@@ -46,7 +46,7 @@ function App() {
 						<p class=" text-white">Next.js</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">Javascript.js</p>
+						<p class=" text-white">JavaScript</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">Node.js</p>
@@ -55,13 +55,13 @@ function App() {
 						<p class=" text-white">Express.js</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">Python.js</p>
+						<p class=" text-white">Python</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">FastAPI.js</p>
+						<p class=" text-white">FastAPI</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">RestAPI.js</p>
+						<p class=" text-white">RestAPI</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">React.js</p>
@@ -70,7 +70,28 @@ function App() {
 						<p class=" text-white">Next.js</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">Javascript.js</p>
+						<p class=" text-white">C++</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Docker</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">AWS</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Kafka</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">SpringBoot</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">SQL</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Pytorch</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">LLM</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">Node.js</p>
@@ -79,13 +100,34 @@ function App() {
 						<p class=" text-white">Express.js</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
-						<p class=" text-white">Python.js</p>
+						<p class=" text-white">Python</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">FastAPI.js</p>
 					</div>
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">RestAPI.js</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">C++</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Docker</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">AWS</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Kafka</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">SpringBoot</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">SQL</p>
+					</div>
+					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
+						<p class=" text-white">Node.js</p>
 					</div>
 				</div>
 			</div>
@@ -155,8 +197,8 @@ function App() {
 				<Project
 					title="nourishdev.com"
 					metaTitle="A personal website showcasing my work"
-					githubUrl="https://github.com/nourishnew/nourishdev"
-					website="https://dnourishdev.com"
+					githubUrl="https://github.com/nourishnew/personal-website"
+					website="https://nourishch.com"
 					description="A personal website built using React.js, Tailwind CSS, Material UI displaying my work experience and different personal projects. Built with a mobile friendly and modern dark them design "
 				/>
 			</div>
