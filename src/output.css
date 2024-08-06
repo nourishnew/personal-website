@@ -611,6 +611,14 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-\[30\%\] {
+  margin-top: 30%;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -682,8 +690,8 @@ video {
   min-width: 300px;
 }
 
-.max-w-\[30em\] {
-  max-width: 30em;
+.max-w-\[25em\] {
+  max-width: 25em;
 }
 
 .max-w-\[40em\] {
@@ -824,8 +832,16 @@ video {
   text-align: left;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-right {
   text-align: right;
+}
+
+.align-bottom {
+  vertical-align: bottom;
 }
 
 .font-sans {

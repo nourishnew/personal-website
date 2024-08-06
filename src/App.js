@@ -202,6 +202,9 @@ function App() {
 					description="A personal website built using React.js, Tailwind CSS, Material UI displaying my work experience and different personal projects. Built with a mobile friendly and modern dark them design "
 				/>
 			</div>
+			<p class="text-center text-white mt-5">
+				&copy; 2024 nourishch.com. All rights reserved.
+			</p>
 		</div>
 	);
 }
