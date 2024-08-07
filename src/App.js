@@ -172,7 +172,7 @@ function App() {
 					style={{ color: "#8284d3" }}
 				/>
 				<div
-					class="job_container skill_div flex flex-row snap-x overflow-auto w-full animate__animated"
+					class="job_container skill_div flex flex-row overflow-auto w-full animate__animated"
 					ref={skillDivRef}>
 					<Job
 						company="General Dynamics"
