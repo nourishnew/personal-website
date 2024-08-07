@@ -167,7 +167,7 @@ function App() {
 			</h1>
 			<div class="flex flex-row">
 				<NavigateBeforeIcon
-					className="slideLeft m-auto"
+					className="slideLeft m-auto cursor-pointer"
 					color="secondary"
 					style={{ color: "#8284d3" }}
 				/>
@@ -218,7 +218,7 @@ function App() {
 					/>
 				</div>
 				<NavigateNextIcon
-					className="slideRight m-auto"
+					className="slideRight m-auto cursor-pointer"
 					color="secondary"
 					style={{ color: "#8284d3" }}
 				/>
