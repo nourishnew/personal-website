@@ -42,7 +42,7 @@ function App() {
 				}
 			};
 		}
-	}, [state]);
+	}, []);
 	return (
 		<div className="App">
 			<div class="flex flex-col lg:flex-row justify-between mb-5">
