@@ -10,7 +10,7 @@ import LinkBar from "./components/LinkBar";
 import About from "./components/About";
 import Project from "./components/Project";
 import "animate.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
@@ -18,7 +18,6 @@ function App() {
 	const skillDivRef = useRef(null);
 	const projectsDivRef = useRef(null);
 
-	const [state, setState] = useState(true);
 	useEffect(() => {
 		const skillDiv = skillDivRef.current;
 		const projectsDiv = projectsDivRef.current;
