@@ -10,12 +10,44 @@ import LinkBar from "./components/LinkBar";
 import About from "./components/About";
 import Project from "./components/Project";
 import "animate.css";
+import { useEffect, useRef, useState } from "react";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 function App() {
+	const skillDivRef = useRef(null);
+	const projectsDivRef = useRef(null);
+
+	const [state, setState] = useState(true);
+	useEffect(() => {
+		const skillDiv = skillDivRef.current;
+		const projectsDiv = projectsDivRef.current;
+
+		if (skillDiv || projectsDiv) {
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("animate__fadeIn");
+					}
+				});
+			});
+
+			observer.observe(skillDiv);
+			observer.observe(projectsDiv);
+			return () => {
+				if (skillDiv) {
+					observer.unobserve(skillDiv);
+				}
+				if (projectsDiv) {
+					observer.unobserve(projectsDiv);
+				}
+			};
+		}
+	}, [state]);
 	return (
 		<div className="App">
-			<div class="flex flex-col lg:flex-row animate__animated animate__fadeIn justify-between mb-5">
-				<div class="basis-[40%] md:mr-5">
+			<div class="flex flex-col lg:flex-row justify-between mb-5">
+				<div class="basis-[40%] md:mr-5 animate__animated animate__fadeIn">
 					<Name />
 					<div class="flex flex-col sm:flex-row min-h-[15em]">
 						<Avatar />
@@ -24,7 +56,7 @@ function App() {
 					<LinkBar />
 					<About />
 				</div>
-				<div class="basis-[58%] mr-2">
+				<div class="basis-[58%] mr-2 ">
 					<Slogan />
 					<div class="flex flex-row justify-between mt-5 overflow-x-scroll sm:overflow-hidden">
 						<Card text="Front-end development" color="bg-[#00C39A]" />
@@ -37,7 +69,7 @@ function App() {
 				</div>
 			</div>
 
-			<div class="container m-auto">
+			<div class=" container m-auto  ">
 				<div class="horizontal-scrolling-items ">
 					<div class="horizontal-scrolling-items__item p-4 bg-[#1E1B1E] rounded-lg">
 						<p class=" text-white">React.js</p>
@@ -131,55 +163,72 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<h1 class="text-white text-4xl font-sans font-bold m-2">Experience </h1>
-
-			<div class="flex flex-row snap-x overflow-auto w-full ">
-				<Job
-					company="General Dynamics"
-					imageUrl="/gd.png"
-					Role="AI Developer"
-					skills="Python,C++, ROS2, LLM, Pytorch, Docker"
-					duration="May 2024 - April 2025"
+			<h1 class="text-[#8284d3] text-4xl font-sans font-bold m-2">
+				Experience{" "}
+			</h1>
+			<div class="flex flex-row">
+				<NavigateBeforeIcon
+					className="slideLeft m-auto"
+					color="secondary"
+					style={{ color: "#8284d3" }}
 				/>
-				<Job
-					company="Blackberry"
-					imageUrl="/bb.jpg"
-					Role="Open Source Developer Intern"
-					skills="C++, Cmake, Terraform, Docker"
-					duration="Sep - Dec 2023"
-				/>
-				<Job
-					company="Ultimate Kronos Group"
-					imageUrl="/ukg.png"
-					Role="Software Engineering Intern"
-					skills="Java,SpringBoot, SQL,RabbitMQ, TeamCity CI/CD"
-					duration="Jan - April 2023"
-				/>
-				<Job
-					company="RBC"
-					imageUrl="/rbc.png"
-					Role="Software Developer Intern"
-					skills="Java, JPA, SpringBoot, SQL, Junit, SonarQube"
-					duration="Jan - April 2022"
-				/>
-				<Job
-					company="Ford"
-					imageUrl="/ford.png"
-					Role="Firmware Developer Intern"
-					skills="C, Linux, yocto"
-					duration="Jan - April 2022"
-				/>
-				<Job
-					company="Shomigo"
-					imageUrl="/shomigo.png"
-					Role="Software Developer Intern"
-					skills="React.js, Javscript, Node.js, Express.js , Neo4j"
-					duration="Jan - April 2022"
+				<div
+					class="job_container skill_div flex flex-row snap-x overflow-hidden w-full animate__animated"
+					ref={skillDivRef}>
+					<Job
+						company="General Dynamics"
+						imageUrl="/gd.png"
+						Role="AI Developer"
+						skills="Python,C++, ROS2, LLM, Pytorch, Docker"
+						duration="May 2024 - April 2025"
+					/>
+					<Job
+						company="Blackberry"
+						imageUrl="/bb.jpg"
+						Role="Open Source Developer Intern"
+						skills="C++, Cmake, Terraform, Docker"
+						duration="Sep - Dec 2023"
+					/>
+					<Job
+						company="Ultimate Kronos Group"
+						imageUrl="/ukg.png"
+						Role="Software Engineering Intern"
+						skills="Java,SpringBoot, SQL,RabbitMQ, TeamCity CI/CD"
+						duration="Jan - April 2023"
+					/>
+					<Job
+						company="RBC"
+						imageUrl="/rbc.png"
+						Role="Software Developer Intern"
+						skills="Java, JPA, SpringBoot, SQL, Junit, SonarQube"
+						duration="Jan - April 2022"
+					/>
+					<Job
+						company="Ford"
+						imageUrl="/ford.png"
+						Role="Firmware Developer Intern"
+						skills="C, Linux, yocto"
+						duration="Jan - April 2022"
+					/>
+					<Job
+						company="Shomigo"
+						imageUrl="/shomigo.png"
+						Role="Software Developer Intern"
+						skills="React.js, Javscript, Node.js, Express.js , Neo4j"
+						duration="Jan - April 2022"
+					/>
+				</div>
+				<NavigateNextIcon
+					className="slideRight m-auto"
+					color="secondary"
+					style={{ color: "#8284d3" }}
 				/>
 			</div>
-			<h1 class="text-white text-4xl font-sans font-bold m-2">Portfolio</h1>
+			<h1 class="text-[#8284d3] text-4xl font-sans font-bold m-2">Portfolio</h1>
 
-			<div class="flex flex-col m-auto sm:flex-row flex-wrap justify-between">
+			<div
+				class="flex flex-col m-auto sm:flex-row flex-wrap justify-between animate__animated"
+				ref={projectsDivRef}>
 				<Project
 					title="Dojla"
 					metaTitle="A cryptocurrency trading simulator webapp"
