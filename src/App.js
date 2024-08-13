@@ -10,13 +10,49 @@ import LinkBar from "./components/LinkBar";
 import About from "./components/About";
 import Project from "./components/Project";
 import "animate.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { Button, TextField } from "@mui/material";
+import axios from "axios";
+import { queries } from "@testing-library/react";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
 	const skillDivRef = useRef(null);
 	const projectsDivRef = useRef(null);
+	const [question, setQuestion] = useState("");
+	const [answer, setAnswer] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState("");
+	const handleSubmit = async (e) => {
+		setAnswer("");
+		setIsLoading(true);
+		if (e) {
+			e.preventDefault();
+		}
+
+		if (question.trim() === "") {
+			setError("Question cannot be empty.");
+			return;
+		}
+
+		setError("");
+		await getAnswer();
+	};
+
+	async function getAnswer() {
+		setIsLoading(true);
+		let query = question;
+		const response = await axios.post(
+			"https://nourishch-server.onrender.com/answer",
+			{
+				query: query,
+			}
+		);
+		setIsLoading(false);
+		setAnswer(response.data.answer);
+	}
 
 	useEffect(() => {
 		const skillDiv = skillDivRef.current;
@@ -45,6 +81,106 @@ function App() {
 	}, []);
 	return (
 		<div className="App">
+			<form onSubmit={handleSubmit} className="w-full">
+				<TextField
+					label="Ask anything about me. (Powered by OpenAI Gpt 4 )"
+					variant="filled"
+					fullWidth
+					value={question}
+					onChange={(e) => setQuestion(e.target.value)}
+					error={!!error} // error prop turns the TextField red if there's an error
+					helperText={error} // helperText displays the error message below the TextField
+					placeholder="Type your question here..."
+					InputProps={{
+						style: {
+							"&::placeholder": {
+								color: "white",
+							},
+						},
+					}}
+					sx={{
+						borderRadius: "20px",
+						backgroundColor: "#333", // Background color of the TextField
+						input: {
+							color: "#D3D3D3", // Text color inside the TextField
+							"::placeholder": {
+								color: "#D3D3D3", // Placeholder text color
+								opacity: 1, // Ensures the white color is not faded
+							},
+						},
+						"& .MuiInput-underline:before": {
+							borderBottomColor: "white", // Color of the underline before focusing
+						},
+						"& .MuiInputLabel-root": {
+							color: "white", // Label text color
+						},
+						"& .MuiOutlinedInput-root": {
+							"& fieldset": {
+								borderColor: "#ccc", // Border color
+							},
+							"&:hover fieldset": {
+								borderColor: "#888", // Border color on hover
+							},
+							"&.Mui-focused fieldset": {
+								borderColor: "#3f51b5", // Border color when focused
+							},
+						},
+					}}
+				/>
+				<Button
+					className="w-48 mb-5 bg-[#1E1B1E] rounded-lg"
+					type="submit"
+					variant="contained"
+					style={{
+						margin: "20px",
+						backgroundColor: "#8184D2",
+						borderRadius: "20px",
+					}}>
+					Submit
+				</Button>
+			</form>
+			<div className="flex flex-row p-5">
+				<div
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
+					onClick={() => {
+						setQuestion("Does he know how to center a div?");
+					}}>
+					<p className="text-white ">Does he know how to center a div?</p>
+				</div>
+				<div
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
+					onClick={() => {
+						setQuestion(
+							"I am looking to hire a full-stack engineer? Is he a good fit?"
+						);
+					}}>
+					<p className="text-white ">
+						I am looking to hire a full-stack engineer? Is he a good fit?
+					</p>
+				</div>
+				<div
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
+					onClick={() => {
+						setQuestion("Did he take any courses in Distributed sytems?");
+					}}>
+					<p className="text-white ">
+						Did he take any courses in Distributed sytems?
+					</p>
+				</div>
+			</div>
+			{isLoading && (
+				<CircularProgress
+					color="inherit"
+					sx={{
+						color: "white",
+					}}
+				/>
+			)}
+			{answer && (
+				<h1 className="text-white text-left text-l md:text:2l animate__animated animate__fadeIn animate__delay-1s m-5">
+					{answer}
+				</h1>
+			)}
 			<div class="flex flex-col lg:flex-row justify-between mb-5">
 				<div class="basis-[40%] md:mr-5 animate__animated animate__fadeIn">
 					<Name />
