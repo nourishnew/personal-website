@@ -15,7 +15,6 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
-import { queries } from "@testing-library/react";
 import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
