@@ -1,4 +1,5 @@
 import "./App.css";
+import ReactMarkdown from "react-markdown";
 
 import Slogan from "./components/Slogan";
 import Card from "./components/Card";
@@ -177,9 +178,9 @@ function App() {
 				/>
 			)}
 			{answer && (
-				<h1 className="text-white text-left text-l md:text:2l animate__animated animate__fadeIn animate__delay-1s m-5">
-					{answer}
-				</h1>
+				<div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg mb-5 animate__animated animate__fadeIn animate__delay-1s">
+					<ReactMarkdown>{answer}</ReactMarkdown>
+				</div>
 			)}
 			<div class="flex flex-col lg:flex-row justify-between mb-5">
 				<div class="basis-[40%] md:mr-5 animate__animated animate__fadeIn">
