@@ -63,7 +63,9 @@ function App() {
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						entry.target.classList.add("animate__fadeIn");
+						entry.target.classList.add("animate__fadeInDown");
+					} else {
+						entry.target.classList.remove("animate__fadeInDown");
 					}
 				});
 			});
@@ -299,7 +301,9 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<h1 class="text-[#8284d3] text-4xl font-sans font-bold m-2">
+			<h1
+				class="text-[#8284d3] text-4xl font-sans font-bold m-2 animate__animated animate__faster"
+				ref={skillDivRef}>
 				Experience{" "}
 			</h1>
 			<div class="flex flex-row">
@@ -308,9 +312,7 @@ function App() {
 					color="secondary"
 					style={{ color: "#8284d3" }}
 				/>
-				<div
-					class="job_container skill_div flex flex-row overflow-auto w-full animate__animated"
-					ref={skillDivRef}>
+				<div class="job_container skill_div flex flex-row overflow-auto w-full ">
 					<Job
 						company="General Dynamics"
 						imageUrl="/gd.png"
@@ -360,17 +362,40 @@ function App() {
 					style={{ color: "#8284d3" }}
 				/>
 			</div>
-			<h1 class="text-[#8284d3] text-4xl font-sans font-bold m-2">Portfolio</h1>
-
-			<div
-				class="flex flex-col m-auto sm:flex-row flex-wrap justify-between animate__animated"
+			<h1
+				class="text-[#8284d3] text-4xl font-sans font-bold m-2 animate__animated animate__faster"
 				ref={projectsDivRef}>
+				Portfolio
+			</h1>
+
+			<div class="flex flex-col m-auto sm:flex-row flex-wrap justify-between ">
 				<Project
 					title="Dojla"
 					metaTitle="A cryptocurrency trading simulator webapp"
 					githubUrl="https://github.com/nourishnew/dojla-public"
 					website="https://dojla.com"
 					description="A cryptocurrency trading simulator webapp built using React.js, Javscript, Firebase Auth, Firestore,Axios"
+				/>
+				<Project
+					title="Movie Search app"
+					metaTitle="A web app to search for movies"
+					githubUrl="https://github.com/nourishnew/movie-search-app"
+					website="https://zearch-movie.netlify.app/"
+					description=" A web app built using React.js , MongoDB to help users find that movie they want to watch and add it to their watch list"
+				/>
+				<Project
+					title="Tesla Screen with Apple car play"
+					metaTitle="UI of Tesla screen with built in apple car play"
+					githubUrl="https://github.com/nourishnew/TeslaAppleCarPlay"
+					website="https://teslascreen.netlify.app"
+					description=" A web app built with React.js displaying Tesla screen apple car play"
+				/>
+				<Project
+					title="AI SAAS app"
+					metaTitle="A full stack web app for AI SAAS to allow users to converse and generate code, music, video and audio."
+					githubUrl="https://github.com/nourishnew/TeslaAppleCarPlay"
+					website="https://teslascreen.netlify.app"
+					description=" A full-stack web app built with Next.js, TailwindCSS, prisma to allow users to generate code, video , audio using different generative model API's and implemented Stripe subscription for premium plans"
 				/>
 				<Project
 					title="ReelsTime"
