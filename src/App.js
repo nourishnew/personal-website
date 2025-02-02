@@ -22,39 +22,9 @@ function App() {
 	const skillDivRef = useRef(null);
 	const projectsDivRef = useRef(null);
 	const [question, setQuestion] = useState("");
-	const [answer, setAnswer] = useState("");
-	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
-	const handleSubmit = async (e) => {
-		setAnswer("");
-		setIsLoading(true);
-		if (e) {
-			e.preventDefault();
-		}
-
-		if (question.trim() === "") {
-			setError("Question cannot be empty.");
-			return;
-		}
-
-		setError("");
-		await getAnswer();
-	};
-
-	async function getAnswer() {
-		setIsLoading(true);
-		let query = question;
-
-		const response = await axios.post(
-			"https://nourishch-server.onrender.com/answer",
-			{
-				question: query,
-			}
-		);
-		setIsLoading(false);
-		setAnswer(response.data.answer);
-	}
-
+	const [answer, setAnswer] = useState("");
+	const [loading, setLoading] = useState(false);
 	useEffect(() => {
 		const skillDiv = skillDivRef.current;
 		const projectsDiv = projectsDivRef.current;
@@ -82,25 +52,48 @@ function App() {
 			};
 		}
 	}, []);
+
+	const handleSubmit = async (e) => {
+		setAnswer("");
+		setLoading(true);
+		if (e) {
+			e.preventDefault();
+		}
+		if (question.trim() === "") {
+			setError("Question is required");
+		}
+		setError("");
+
+		await getAnswer();
+	};
+	async function getAnswer() {
+		setLoading(true);
+		let query = question;
+		console.log(query);
+		const response = await axios.post(
+			"https://nourishch-server.onrender.com/answer",
+			{
+				question: query,
+			}
+		);
+		setLoading(false);
+		console.log(response.data);
+		setAnswer(response.data.answer);
+	}
 	return (
 		<div className="App">
-			<form onSubmit={handleSubmit} className="w-full">
+			<form className="w-full" onSubmit={handleSubmit}>
 				<TextField
-					label="Ask anything about me. (Powered by OpenAI Gpt 4 )"
+					label="Ask anything about me. (Powered by OpenAI gpt4-o"
 					variant="filled"
 					fullWidth
 					value={question}
-					onChange={(e) => setQuestion(e.target.value)}
-					error={!!error} // error prop turns the TextField red if there's an error
-					helperText={error} // helperText displays the error message below the TextField
-					placeholder="Type your question here..."
-					InputProps={{
-						style: {
-							"&::placeholder": {
-								color: "white",
-							},
-						},
+					onChange={(e) => {
+						setQuestion(e.target.value);
 					}}
+					error={!!error}
+					helperText={error}
+					placeholder="Type your question here"
 					sx={{
 						borderRadius: "20px",
 						backgroundColor: "#333", // Background color of the TextField
@@ -142,45 +135,42 @@ function App() {
 					Submit
 				</Button>
 			</form>
+
 			<div className="flex flex-row p-5">
 				<div
-					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
-					onClick={() => {
-						setQuestion("Does he know how to center a div?");
-					}}>
-					<p className="text-white ">Does he know how to center a div?</p>
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[20px] cursor-pointer"
+					onClick={() => setQuestion("Does he know how to center a div?")}>
+					<p className="text-white"> Does he know how to center a div ?</p>
 				</div>
 				<div
-					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
-					onClick={() => {
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[20px] cursor-pointer"
+					onClick={() =>
 						setQuestion(
-							"I am looking to hire a full-stack engineer? Is he a good fit?"
-						);
-					}}>
-					<p className="text-white ">
-						I am looking to hire a full-stack engineer? Is he a good fit?
+							"I am looking for a full-stack engineer? Is he a good fit?"
+						)
+					}>
+					<p className="text-white">
+						{" "}
+						I am looking for a full-stack engineer? Is he a good fit ?
 					</p>
 				</div>
 				<div
-					className="bg-[#1E1B1E] p-2 m-2 rounded-[10px] cursor-pointer"
-					onClick={() => {
-						setQuestion("Did he take any courses in Distributed sytems?");
-					}}>
-					<p className="text-white ">
-						Did he take any courses in Distributed sytems?
+					className="bg-[#1E1B1E] p-2 m-2 rounded-[20px] cursor-pointer"
+					onClick={() =>
+						setQuestion(
+							"Has he taken any courses in Distributed systems or computer security ?"
+						)
+					}>
+					<p className="text-white">
+						{" "}
+						Has he taken any courses in Distributed systems or computer security
+						?
 					</p>
 				</div>
 			</div>
-			{isLoading && (
-				<CircularProgress
-					color="inherit"
-					sx={{
-						color: "white",
-					}}
-				/>
-			)}
+			{loading && <CircularProgress color="inherit" sx={{ color: "white" }} />}
 			{answer && (
-				<div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg mb-5 animate__animated animate__fadeIn animate__delay-1s">
+				<div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg mb-5">
 					<ReactMarkdown>{answer}</ReactMarkdown>
 				</div>
 			)}
@@ -393,8 +383,8 @@ function App() {
 				<Project
 					title="AI SAAS app"
 					metaTitle="A full stack web app for AI SAAS to allow users to converse and generate code, music, video and audio."
-					githubUrl="https://github.com/nourishnew/TeslaAppleCarPlay"
-					website="https://teslascreen.netlify.app"
+					githubUrl="https://github.com/nourishnew/nextjs-aisaas"
+					website="https://nextjs-aisaas.vercel.app/"
 					description=" A full-stack web app built with Next.js, TailwindCSS, prisma to allow users to generate code, video , audio using different generative model API's and implemented Stripe subscription for premium plans"
 				/>
 				<Project
