@@ -1,8 +1,20 @@
+import { Briefcase } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function LinkBar() {
 	return (
-		<div class="flex flex-row p-5 lg:p-10 justify-between bg-white mt-5 rounded-[20px] min-w-[300px] w-full">
+		<div class="flex flex-row mb-5 p-5 lg:p-10 justify-between bg-white rounded-[20px] min-w-[300px] w-full">
+			<Link
+				to="/services"
+				className="flex flex-col items-center gap-1 text-black-900 font-bold text-2xl
+                 hover:text-gray-900 transition-colors"
+				aria-label="Services">
+				<Briefcase className="h-8 w-8 mb-2" aria-hidden="true" />
+
+				{/* Label */}
+				<span class=" text-black-900 font-bold text-xl">Services</span>
+			</Link>
 			<a
 				href=" https://www.linkedin.com/in/nourish-cherish/"
 				target="_blank"

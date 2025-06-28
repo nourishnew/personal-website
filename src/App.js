@@ -82,7 +82,7 @@ function App() {
 	}
 	return (
 		<div className="App">
-			<form className="w-full" onSubmit={handleSubmit}>
+			{/* <form className="w-full" onSubmit={handleSubmit}>
 				<TextField
 					label="Ask anything about me. (Powered by OpenAI gpt4-o"
 					variant="filled"
@@ -173,15 +173,16 @@ function App() {
 				<div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg mb-5">
 					<ReactMarkdown>{answer}</ReactMarkdown>
 				</div>
-			)}
+			)} */}
 			<div class="flex flex-col lg:flex-row justify-between mb-5">
 				<div class="basis-[40%] md:mr-5 animate__animated animate__fadeIn">
 					<Name />
+					<LinkBar />
 					<div class="flex flex-col sm:flex-row min-h-[15em]">
 						<Avatar />
 						<Education />
 					</div>
-					<LinkBar />
+
 					<About />
 				</div>
 				<div class="basis-[58%] mr-2 ">
