@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Education() {
 	return (
 		<div class=" flex flex-col rounded-[20px] bg-[#1E1B1E] min-w-64 p-4 basis-[50%]">

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Avatar() {
 	return (
 		<div class=" basis-[50%] bg-[#8184D2] min-w-48 sm:mr-5 rounded-[20px] p-4 w-full h-full">

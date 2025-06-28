@@ -1,4 +1,3 @@
-import React from "react";
 export default function Name() {
 	return (
 		<div class="flex flex-row justify-between p-4 mb-5 rounded-[20px] bg-[#1E1B1E] w-full h-[8%] min-w-[300px]">

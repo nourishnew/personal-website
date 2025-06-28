@@ -1,5 +1,4 @@
 import "./App.css";
-import ReactMarkdown from "react-markdown";
 
 import Slogan from "./components/Slogan";
 import Card from "./components/Card";
@@ -11,20 +10,18 @@ import LinkBar from "./components/LinkBar";
 import About from "./components/About";
 import Project from "./components/Project";
 import "animate.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Button, TextField } from "@mui/material";
-import axios from "axios";
-import CircularProgress from "@mui/material/CircularProgress";
+// import axios from "axios";
 
 function App() {
 	const skillDivRef = useRef(null);
 	const projectsDivRef = useRef(null);
-	const [question, setQuestion] = useState("");
-	const [error, setError] = useState("");
-	const [answer, setAnswer] = useState("");
-	const [loading, setLoading] = useState(false);
+	// const [question, setQuestion] = useState("");
+	// const [error, setError] = useState("");
+	// const [answer, setAnswer] = useState("");
+	// const [loading, setLoading] = useState(false);
 	useEffect(() => {
 		const skillDiv = skillDivRef.current;
 		const projectsDiv = projectsDivRef.current;
@@ -53,33 +50,33 @@ function App() {
 		}
 	}, []);
 
-	const handleSubmit = async (e) => {
-		setAnswer("");
-		setLoading(true);
-		if (e) {
-			e.preventDefault();
-		}
-		if (question.trim() === "") {
-			setError("Question is required");
-		}
-		setError("");
+	// const handleSubmit = async (e) => {
+	// 	setAnswer("");
+	// 	setLoading(true);
+	// 	if (e) {
+	// 		e.preventDefault();
+	// 	}
+	// 	if (question.trim() === "") {
+	// 		setError("Question is required");
+	// 	}
+	// 	setError("");
 
-		await getAnswer();
-	};
-	async function getAnswer() {
-		setLoading(true);
-		let query = question;
-		console.log(query);
-		const response = await axios.post(
-			"https://nourishch-server.onrender.com/answer",
-			{
-				question: query,
-			}
-		);
-		setLoading(false);
-		console.log(response.data);
-		setAnswer(response.data.answer);
-	}
+	// 	await getAnswer();
+	// };
+	// async function getAnswer() {
+	// 	setLoading(true);
+	// 	let query = question;
+	// 	console.log(query);
+	// 	const response = await axios.post(
+	// 		"https://nourishch-server.onrender.com/answer",
+	// 		{
+	// 			question: query,
+	// 		}
+	// 	);
+	// 	setLoading(false);
+	// 	console.log(response.data);
+	// 	setAnswer(response.data.answer);
+	// }
 	return (
 		<div className="App">
 			{/* <form className="w-full" onSubmit={handleSubmit}>

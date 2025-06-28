@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Job({ company, skills, imageUrl, Role, duration }) {
 	return (
 		<div class="p-3 sm:p-4 m-2 max-w-[40em] bg-[#1E1B1E] rounded-[20px] snap-center  min-w-[18em] sm:min-w-[23em] md:min-w-[28em] lg:min-w-[35em]  ">

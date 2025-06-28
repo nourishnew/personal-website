@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Code2, Home, Layout, RefreshCcw, Rocket, Wrench } from "lucide-react";
+import { Code2, Home, Layout, RefreshCcw } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /**
